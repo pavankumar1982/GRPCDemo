@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.adp.mnc.gcc.usermanagement.grpc;
+
+message AuthRequest {
+  string username = 1;
+  string password = 2;
+  string grantType = 3;
+  string accessToken = 4;
+  DashboardCtx dashboardCtx = 5;
+}
+
+message DashboardCtx {
+	string ctxType = 1;
+	string clientId = 2;
+	string partnerId = 3;
+}
+
+message AuthResponse {
+  string accessToken = 1;
+}
+
+service AuthService {
+  rpc authenticate (AuthRequest) returns (AuthResponse);
+}

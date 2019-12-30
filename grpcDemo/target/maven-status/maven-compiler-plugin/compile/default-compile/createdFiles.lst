@@ -1,0 +1,3 @@
+grpcdemo/test/generated/HelloWorldServiceGrpc$1.class
+com/test/grpc/MultiAdminServiceGrpc$1.class
+com/adp/mnc/gcc/usermanagement/grpc/AuthServiceGrpc$1.class

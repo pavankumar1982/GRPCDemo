@@ -1,0 +1,162 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.test.grpc;
+
+message MultiAdminDataResponse {
+	string result = 1;
+}
+
+message MultiAdminDataRequest {
+	string clientId = 1;
+	string applicationId = 2;
+	string countryCode = 3;
+	string modBy = 4;
+	repeated AclParam aclParam = 5;
+	
+	repeated AgeAndSeniority ageAndSecurity = 6;
+	repeated ClientDataSet clientDataSet = 7;
+	repeated ExchangeRate exchangeRate = 8;
+	repeated SsmJoinRelationId ssmJoinRelationId= 9;
+	repeated SsmJoinRelation ssmJoinRelation = 10;
+	repeated SsmTable ssmTable = 11;
+	repeated SubCategoryDefinition subCategoryDefinition = 12;
+	repeated SubRegionMapping subRegionMappingV01 = 13;
+	repeated Auth auth = 14;
+	repeated SubOrdinate subOrdinate = 15;
+	repeated DimensionDataType dimensionDataType = 16;
+}
+
+message AclParam {
+	string mandt = 1;
+	string param = 2;
+	string value = 3;
+	string modby = 4;
+}
+
+message AgeAndSeniority {
+	string mandt = 1;
+	string grp = 2;
+	string brnam = 3;
+	string minyrs = 4;
+	string maxyrs = 5;
+	string stortid = 6;
+	string modby = 7;
+}
+
+message ClientDataSet {
+	string mandt = 1;
+	string dataset = 2;
+	string fldname = 3;
+	string sortid = 4;
+	string include = 5;
+	string display = 6;
+	string flddesc = 7;
+	string modby = 8;
+}
+
+message ExchangeRate {
+	string mandt = 1;
+	string fcurr = 2;
+	string tcurr = 3;
+	string gdatu = 4;
+	string ukurs = 5;
+	string modby = 6;
+}
+
+message SsmJoinRelationId {
+	string mandt = 1;
+	string fcolname = 2;
+	string tcolname = 3;
+	string joinrelid = 4;
+	string modby = 5;
+}
+
+message SsmJoinRelation {
+	string mandt = 1;
+	string fromds = 2;
+	string tods = 3;
+	string relation = 4;
+	string joinrelid = 5;
+	string frndname = 6;
+	string reldesc = 7;
+	string secritid = 8;
+	string modby = 9;
+}
+
+message SsmTable {
+	string mandt = 1;
+	string persona = 2;
+	string dataset = 3;
+	string frndname = 4;
+	string dstype = 5;
+	string tschema = 6;
+	string hideds = 7;
+	string secritid = 8;
+	string modby = 9;
+}
+
+message SubCategoryDefinition {
+	string mandt = 1;
+	string subcat = 2;
+	string subnam = 3;
+	string wgcat = 4;
+	string sortid = 5;
+	string modby = 6;
+}
+
+message SubRegionMapping {
+	string mandt = 1;
+	string intca = 2;
+	string regio = 3;
+	string regtxt = 4;
+	string subrg = 5;
+	string subrtx = 6;
+	string modby = 7;
+}
+
+message Auth {
+	string mandt = 1;
+	string uname = 2;
+	string seqnr = 3;
+	string fullname = 4;
+	string authgrp = 5;
+	string authval = 6;
+	string opera = 7;
+	string shareall = 8;
+	string tmstmp = 9;
+	string prflg = 10;
+	string molga = 11;
+	string secHrId = 12;
+	string secPyId = 13;
+	string secAdmId = 14;
+	string secTmid = 15;
+	string secOmId = 16;
+	string secDcId = 17;
+	string secObId = 18;
+	string modby = 19;
+}
+
+message SubOrdinate {
+
+	string mandt = 1;
+	string mgrid = 2;
+	string replv = 3;
+	string seqnr = 4;
+	string pernr = 5;
+}
+
+message DimensionDataType {
+	string name = 1;
+	repeated DimenstionCodeType dimenstionCodeType = 2;
+}
+
+message DimenstionCodeType {
+	string name = 1;
+	string code = 2;
+	map<string,string> otherData = 3;
+}
+
+service MultiAdminService {
+	rpc processRequest(MultiAdminDataRequest) returns (MultiAdminDataResponse);
+}
